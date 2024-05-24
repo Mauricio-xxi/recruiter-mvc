@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BF1EE1FC-1733-44E8-A3D6-165CB9854436}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruiterApp.Api", "src\RecruiterApp.Api\RecruiterApp.Api.csproj", "{18CB3C20-DD6D-436A-B567-7B002DE881B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1} = {AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1}
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81} = {C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}
+		{D187CFD7-E4C6-4D46-AB58-B642EFCEF440} = {D187CFD7-E4C6-4D46-AB58-B642EFCEF440}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruiterApp.Application", "src\RecruiterApp.Application\RecruiterApp.Application.csproj", "{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruiterApp.Domain", "src\RecruiterApp.Domain\RecruiterApp.Domain.csproj", "{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruiterApp.Infrastructure", "src\RecruiterApp.Infrastructure\RecruiterApp.Infrastructure.csproj", "{D187CFD7-E4C6-4D46-AB58-B642EFCEF440}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81} = {C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruiterApp.Tests", "src\RecruiterApp.Tests\RecruiterApp.Tests.csproj", "{AFE21C90-6869-4E37-BC29-149DB30784A9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18CB3C20-DD6D-436A-B567-7B002DE881B9} = {18CB3C20-DD6D-436A-B567-7B002DE881B9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18CB3C20-DD6D-436A-B567-7B002DE881B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18CB3C20-DD6D-436A-B567-7B002DE881B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18CB3C20-DD6D-436A-B567-7B002DE881B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18CB3C20-DD6D-436A-B567-7B002DE881B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D187CFD7-E4C6-4D46-AB58-B642EFCEF440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D187CFD7-E4C6-4D46-AB58-B642EFCEF440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D187CFD7-E4C6-4D46-AB58-B642EFCEF440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D187CFD7-E4C6-4D46-AB58-B642EFCEF440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE21C90-6869-4E37-BC29-149DB30784A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE21C90-6869-4E37-BC29-149DB30784A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE21C90-6869-4E37-BC29-149DB30784A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE21C90-6869-4E37-BC29-149DB30784A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18CB3C20-DD6D-436A-B567-7B002DE881B9} = {BF1EE1FC-1733-44E8-A3D6-165CB9854436}
+		{AF86B6E5-3B9F-4BEA-8B50-C9C483F0CAE1} = {BF1EE1FC-1733-44E8-A3D6-165CB9854436}
+		{C1FFD58B-E0F6-46E3-97B7-B73D60A5AE81} = {BF1EE1FC-1733-44E8-A3D6-165CB9854436}
+		{D187CFD7-E4C6-4D46-AB58-B642EFCEF440} = {BF1EE1FC-1733-44E8-A3D6-165CB9854436}
+		{AFE21C90-6869-4E37-BC29-149DB30784A9} = {BF1EE1FC-1733-44E8-A3D6-165CB9854436}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E1C2F5A-3344-4EE1-BCBE-A2D41F686FFB}
+	EndGlobalSection
+EndGlobal
