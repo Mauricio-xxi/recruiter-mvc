@@ -1,0 +1,120 @@
+# Compiled files
+bin/
+obj/
+*.dll
+*.exe
+*.log
+*.rpt
+*.cache
+
+# User-specific files
+.vscode/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+Generated/
+out/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Build directories
+bin/
+obj/
+publish/
+out/
+
+# Visual Studio
+.vs/
+_ReSharper.Caches/
+*.csproj.user
+*.dotCover
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.DS_Store
+
+# Logs
+*.log
+*.tlog
+
+# NPM packages
+node_modules/
+jspm_packages/
+
+# VS Code directories
+.history
+.vscode
+
+# LocalDB files
+*.mdf
+*.ldf
+
+# Docker
+*.stackdump
+docker-compose.override.yml
+Dockerfile*
+docker-compose.yml
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.targets
+
+# Tooling
+*.ide/
+.terraform/
+.jetBrains/
+.idea/
+*.idea/
+*.run/
+*.tfstate
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Paket
+paket-files/
+
+# Azure Pipelines
+.yarn/
+
+# SonarQube
+.sonar/
+
+# Coverage Results
+TestResults/
+Coverage/
+.coverage
+*.coverage
+*.coveragexml
+
+# StyleCop
+StyleCopReport.xml
+
+# Publish output
+wwwroot/
+publish/
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
