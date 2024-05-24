@@ -1,0 +1,41 @@
+@model IEnumerable<RecruiterApp.Api.Models.CandidateViewModel>
+
+@{
+    ViewData["Title"] = "Candidates Page";
+}
+
+<h1>Candidates</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Candidate</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birthdate</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var candidate in Model)
+        {
+            <tr>
+                <td>@candidate.Name</td>
+                <td>@candidate.Surname</td>
+                <td>@candidate.Birthdate.ToString("d")</td>
+                <td>@candidate.Email</td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@candidate.IdCandidate">Edit</a>
+                    <form asp-action="DeleteConfirmed" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this candidate?');">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        <input type="hidden" name="id" value="@candidate.IdCandidate" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

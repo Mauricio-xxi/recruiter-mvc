@@ -1,0 +1,101 @@
+﻿@model RecruiterApp.Api.Models.CandidateCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Candidate";
+}
+
+<h1>Create Candidate</h1>
+
+<h4>Candidate</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthdate" class="control-label"></label>
+                <input asp-for="Birthdate" class="form-control" />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <h4>Experiences</h4>
+            <div id="experiences"></div>
+
+            <div class="form-group button-group">
+                <button type="button" class="btn btn-secondary" onclick="addExperience()">Add Experience</button>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function addExperience() {
+            const index = document.querySelectorAll("#experiences .experience").length;
+            const experienceDiv = document.createElement("div");
+            experienceDiv.classList.add("experience");
+
+            experienceDiv.innerHTML = `
+                        <h5>Experiencia ${index + 1}</h5>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Company" class="control-label">Company</label>
+                            <input class="form-control" type="text" name="CandidateExperiences[${index}].Company" id="CandidateExperiences_${index}__Company" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Job" class="control-label">Job</label>
+                            <input class="form-control" type="text" name="CandidateExperiences[${index}].Job" id="CandidateExperiences_${index}__Job" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Description" class="control-label">Description</label>
+                            <input class="form-control" type="text" name="CandidateExperiences[${index}].Description" id="CandidateExperiences_${index}__Description" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Salary" class="control-label">Salary</label>
+                            <input class="form-control" type="number" name="CandidateExperiences[${index}].Salary" id="CandidateExperiences_${index}__Salary" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__BeginDate" class="control-label">Begin Date</label>
+                            <input class="form-control" type="date" name="CandidateExperiences[${index}].BeginDate" id="CandidateExperiences_${index}__BeginDate" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__EndDate" class="control-label">End Date</label>
+                            <input class="form-control" type="date" name="CandidateExperiences[${index}].EndDate" id="CandidateExperiences_${index}__EndDate" />
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="removeExperience(this)">Remove Experience</button>
+                    `;
+
+            document.getElementById("experiences").appendChild(experienceDiv);
+        }
+
+        function removeExperience(button) {
+            const experienceDiv = button.parentElement;
+            experienceDiv.remove();
+            updateExperienceTitles();
+        }
+
+        function updateExperienceTitles() {
+            const experienceDivs = document.querySelectorAll("#experiences .experience");
+            experienceDivs.forEach((div, index) => {
+                div.querySelector('h5').innerText = `Experiencia ${index + 1}`;
+            });
+        }
+    </script>
+}

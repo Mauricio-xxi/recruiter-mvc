@@ -1,0 +1,150 @@
+﻿@model RecruiterApp.Api.Models.CandidateEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Candidate Page";
+}
+
+<h1>Edit Candidate</h1>
+
+<h4>Candidate</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCandidate" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthdate" class="control-label"></label>
+                <input asp-for="Birthdate" class="form-control" />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <h4>Experiences</h4>
+            <div id="experiences">
+                @for (int i = 0; i < Model.CandidateExperiences.Count; i++)
+                {
+                    <div class="experience">
+                        <input type="hidden" asp-for="@Model.CandidateExperiences[i].IdCandidateExperience" />
+                        <h5>Experiencia @(i + 1)</h5>
+                        <div class="form-group">
+                            <label asp-for="@Model.CandidateExperiences[i].Company" class="control-label"></label>
+                            <input asp-for="@Model.CandidateExperiences[i].Company" class="form-control" />
+                            <span asp-validation-for="@Model.CandidateExperiences[i].Company" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.CandidateExperiences[i].Job" class="control-label"></label>
+                            <input asp-for="@Model.CandidateExperiences[i].Job" class="form-control" />
+                            <span asp-validation-for="@Model.CandidateExperiences[i].Job" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.CandidateExperiences[i].Description" class="control-label"></label>
+                            <input asp-for="@Model.CandidateExperiences[i].Description" class="form-control" />
+                            <span asp-validation-for="@Model.CandidateExperiences[i].Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.CandidateExperiences[i].Salary" class="control-label"></label>
+                            <input asp-for="@Model.CandidateExperiences[i].Salary" class="form-control" />
+                            <span asp-validation-for="@Model.CandidateExperiences[i].Salary" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.CandidateExperiences[i].BeginDate" class="control-label"></label>
+                            <input asp-for="@Model.CandidateExperiences[i].BeginDate" class="form-control" />
+                            <span asp-validation-for="@Model.CandidateExperiences[i].BeginDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.CandidateExperiences[i].EndDate" class="control-label"></label>
+                            <input asp-for="@Model.CandidateExperiences[i].EndDate" class="form-control" />
+                            <span asp-validation-for="@Model.CandidateExperiences[i].EndDate" class="text-danger"></span>
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="removeExperience(this, @Model.CandidateExperiences[i].IdCandidateExperience)">Remove Experience</button>
+                        <hr />
+                    </div>
+                }
+            </div>
+
+            <div class="form-group button-group">
+                <button type="button" class="btn btn-secondary" onclick="addExperience()">Add Experience</button>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function addExperience() {
+            const index = document.querySelectorAll("#experiences .experience").length;
+            const experienceDiv = document.createElement("div");
+            experienceDiv.classList.add("experience");
+
+            experienceDiv.innerHTML = `
+                        <h5>Experiencia ${index + 1}</h5>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Company" class="control-label">Company</label>
+                            <input class="form-control" type="text" name="CandidateExperiences[${index}].Company" id="CandidateExperiences_${index}__Company" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Job" class="control-label">Job</label>
+                            <input class="form-control" type="text" name="CandidateExperiences[${index}].Job" id="CandidateExperiences_${index}__Job" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Description" class="control-label">Description</label>
+                            <input class="form-control" type="text" name="CandidateExperiences[${index}].Description" id="CandidateExperiences_${index}__Description" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__Salary" class="control-label">Salary</label>
+                            <input class="form-control" type="number" name="CandidateExperiences[${index}].Salary" id="CandidateExperiences_${index}__Salary" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__BeginDate" class="control-label">Begin Date</label>
+                            <input class="form-control" type="date" name="CandidateExperiences[${index}].BeginDate" id="CandidateExperiences_${index}__BeginDate" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CandidateExperiences_${index}__EndDate" class="control-label">End Date</label>
+                            <input class="form-control" type="date" name="CandidateExperiences[${index}].EndDate" id="CandidateExperiences_${index}__EndDate" />
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="removeExperience(this, null)">Remove Experience</button>
+                        <hr />
+                    `;
+
+            document.getElementById("experiences").appendChild(experienceDiv);
+        }
+
+        function removeExperience(button, experienceId) {
+            const experienceDiv = button.parentElement;
+            experienceDiv.remove();
+            if (experienceId) {
+                const hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "ExperiencesToRemove";
+                hiddenInput.value = experienceId;
+                document.querySelector("form").appendChild(hiddenInput);
+            }
+            updateExperienceTitles();
+        }
+
+        function updateExperienceTitles() {
+            const experienceDivs = document.querySelectorAll("#experiences .experience");
+            experienceDivs.forEach((div, index) => {
+                div.querySelector('h5').innerText = `Experiencia ${index + 1}`;
+            });
+        }
+    </script>
+}
