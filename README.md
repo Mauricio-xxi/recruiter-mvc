@@ -93,8 +93,8 @@ RecruiterApp/
 │   │   ├── Views/
 │   │   ├── wwwroot/
 │   │   ├── appsettings.json
-│   │   ├── Program.cs
-│   │   └── Startup.cs
+│   │   └── Program.cs
+│   │
 │   │
 │   ├── RecruiterApp.Application/
 │   │   ├── CreateCandidate/
